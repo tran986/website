@@ -49,3 +49,17 @@ footer {
   padding: 2rem 1rem;
   color: #666;
 }
+
+a.button {
+  display: inline-block;
+  background: #6A94B4;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+a.button:hover {
+  background: #005f87;
+}
