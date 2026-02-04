@@ -67,16 +67,21 @@ a.button {
 a.button:hover {
   background: #005f87;
 }
-/* ====== TWO-COLUMN FLEX LAYOUT ====== */
-.two-column {
-  display: flex;
-  gap: 2.5rem;
-  align-items: stretch;
-  margin-bottom: 3rem;
+/* ====== TWO-COLUMN GRID LAYOUT ====== */
+.two-column-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin:3rem auto;
+  padding: 0 1rem;
 }
 
-.two-column.reverse {
-  flex-direction: row-reverse;
+.two-column-section .column {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .two-column.split {
