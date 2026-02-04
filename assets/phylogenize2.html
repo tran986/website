@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head of html section starts-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>phylogenize2</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- body of html section starts-->
+<body>
+    <!--header of body section starts-->
+  <header>
+        <h2>phylogenize2</h2>
+        <p> A robust phylogenetic regression framework for microbiome analysis</p>
+        <p> Nghi (Nia) Tran, Kathyrn Kananen, Patrick Bradley</p>
+  </header>
+
+    <!--main of body section starts-->
+<main>
+    <section>
+        <h1>Project Overview</h1>
+        <p> phylogenize is a R-based and conda package to utilize PGLS (phylogenetic generalized least square) to use gene contents to predict for environmental phenotypes
+        (such as specificity, prevalence or abundance) directly from sequencing data, while also accounting for the evolutionary relationships between microbes.
+        </p> 
+    </section>
+
+    <section>
+        <h1>Methods</h1>
+        <p> we use PGLS (phylolm package), where predictor variables are gene presence/absence dataset (generated from MGYG, UHGP, and GTDB dataset clustering with Anivo's mmseq).
+            and outcome variables are count data (processed with QC, BBDuk, Kraken/Bracken). Count data will be transformed into phenotype data (prevalence/specificity or abundance, depending on user's choice)
+            To account for outlier and non-paramtric datasets, we implemented phylogenetic independent contrast - PIC (ape package), combined with regression with empirical null distribution estimation method ("permulate").
+            This will help to reduce FPR and increase sensitivity. We use early-stopping (an adaptive machine-learning techniques to halt model when no further signficant hits are found) that remarkably save computing runtime
+            and resources.
+        </p>
+    </section>
+
+    <section>
+        <h1>Results and Figures</h1>
+
+    </section>
+
+
+   
+    <p><a href="index.html">Home</a>
+</main>
+
+</body>
+
+</html>
