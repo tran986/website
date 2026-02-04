@@ -3,26 +3,30 @@ body {
   line-height: 1.7;
   margin: 0;
   padding: 0;
-  color: #222;
-  background: #FFA07A;
+  color: black;
+
 }
 
 header {
-  padding: 4rem 1rem;
+  background-image: url("assets/background_head.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+
+  padding: 5rem 1rem;
   text-align: center;
-  background: #ffffff;
-  border-bottom: 1px solid #eaeaea;
+  position:relative;
 }
 
 header h1 {
   font-size: 2.8rem;
-  margin-bottom: 0.3rem;
-  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  color: whitesmoke;
 }
 
 header p {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 1.8rem;
+  color: white;
 }
 
 main {
@@ -63,3 +67,45 @@ a.button {
 a.button:hover {
   background: #005f87;
 }
+/* ====== TWO-COLUMN FLEX LAYOUT ====== */
+.two-column {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
+}
+
+.two-column.reverse {
+  flex-direction: row-reverse;
+}
+
+.two-column.split {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;  /* makes left and right panels same height */
+}
+
+/* Child panels: force 50% width each */
+.two-column.split > .content-panel {
+  flex: 0 0 50%;
+}
+
+/* ====== IMAGE PANEL (optional) ====== */
+.image-panel {
+  flex: 1;
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  min-height: 300px;
+}
+
+/* ====== CONTENT PANEL ====== */
+.content-panel {
+  flex: 1;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
