@@ -29,7 +29,7 @@
 
     <section>
         <h1>Methods</h1>
-        <p> we use PGLS (phylolm package), where predictor variables are gene presence/absence dataset (generated from MGYG, UHGP, and GTDB dataset clustering with Anivo's mmseq).
+        <p> We use Phylogenetic Generalized Least Square (phylolm package), where predictor variables are gene presence/absence dataset (generated from UniRef, UHGP, and GTDB dataset clustering with Anivo's mmseq).
             and outcome variables are count data (processed with QC, BBDuk, Kraken/Bracken). Count data will be transformed into phenotype data (prevalence/specificity or abundance, depending on user's choice)
             To account for outlier and non-paramtric datasets, we implemented phylogenetic independent contrast - PIC (ape package), combined with regression with empirical null distribution estimation method ("permulate").
             This will help to reduce FPR and increase sensitivity. We use early-stopping (an adaptive machine-learning techniques to halt model when no further signficant hits are found) that remarkably save computing runtime
