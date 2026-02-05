@@ -30,20 +30,58 @@
     <section>
         <h1>Methods</h1>
         <p> We use Phylogenetic Generalized Least Square (phylolm package), where predictor variables are gene presence/absence dataset (generated from UniRef, UHGP, and GTDB dataset clustering with Anivo's mmseq).
-            and outcome variables are count data (processed with QC, BBDuk, Kraken/Bracken). Count data will be transformed into phenotype data (prevalence/specificity or abundance, depending on user's choice)
-            To account for outlier and non-paramtric datasets, we implemented phylogenetic independent contrast - PIC (ape package), combined with regression with empirical null distribution estimation method ("permulate").
+            and outcome variables are count data (processed with QC, BBDuk, Kraken/Bracken), which will be transformed into phenotype data (prevalence/specificity or abundance, depending on user's choice)</p>
+        <p>To account for outlier and non-paramtric datasets, we implemented phylogenetic independent contrast - PIC (R ape package), combined with regression with empirical null distribution estimation method ("permulate").
             This will help to reduce FPR and increase sensitivity. We use early-stopping (an adaptive machine-learning techniques to halt model when no further signficant hits are found) that remarkably save computing runtime
-            and resources.
-        </p>
+            and resources.</p>
     </section>
 
     <section>
         <h1>Results and Figures</h1>
 
-    </section>
+        <figure>
+            <img src="assets/phylogenize2/fig_1a_011326_2.svg" alt="P-value distribution of PGLS from null simulated dataset">
+            <figcaption>
+                <strong>Figure 1</strong> Even with null simulated data, phylogenizev1 that applies phylogenetic regression by phylolm (R package)
+                we still yields an anti-conservative distribution that indicates extremely high false discovery rate, though phylogeny structures have
+                been accounted for. FDR seems to be exacerbated when phenotypes (specificity, abundance or prevalence) is simulated instead of using real values.
+            </figcaption>
+        </figure>
 
+        <figure>
+            <img src="assets/phylogenize2/outlier.png" alt="The presence of outlier in phenotype values (aka outcome variables)">
+            <figcaption>
+                <strong>Figure 2</strong> Outliers in phenotype values (aka prevalence, specificity or abundance) are found in two different real dataset - 
+            the TaraOceans marine microbiome and mouse-gut microbiome.
+            </figcaption>   
+        </figure>
+    
+        <figure>
+            <img src="assets/phylogenize2/runtime_compared.svg" alt="kkk">
+            <figcaption>
+                <strong>Figure 3</strong> Application of our new, phylogenetic statistical approach - Permul - 
+                shows a significant decrease in computing resources.
+            </figcaption>   
+        </figure>
+    
+        <figure>
+            <img src="assets/phylogenize2/taraO.png" alt="kkk">
+            <figcaption>
+                <strong>Figure 4</strong> One of the significant protein hits identified from 
+                our new statistical method, from the marine microbiome (TaraOceans dataset) that 
+                increases in the mesopelagic zone compared to the surface zone. 
+            </figcaption>   
+        </figure>
 
-   
+        <figure>
+            <img src="assets/phylogenize2/mice-gut.png" alt="kkk">
+            <figcaption>
+                <strong>Figure 4</strong> A significant protein hits from the mouse-gut microbiome 
+                that undergo intermittent fasting compared to normal diet using our new approach.
+            </figcaption>   
+        </figure>
+
+    </section>   
     <p><a href="index.html">Home</a>
 </main>
 
