@@ -12,17 +12,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(
-      rgba(15, 23, 42, 0.85),
-      rgba(15, 23, 42, 0.85)
-    ),
-    url("assets/background_head.jpg"); /* change to your image path */
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
+  background-color: #0f172a;
   color: #f8fafc;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
@@ -30,11 +20,19 @@ body {
 }
 
 .hero {
-  min-height: 100vh;              /* full screen height */
+min-height: 100vh;
+
+  background-image: 
+    url("assets/background_head.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;        /* vertical center */
-  align-items: center;            /* horizontal center */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 2rem;
 }
