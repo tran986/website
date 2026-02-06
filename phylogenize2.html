@@ -22,67 +22,75 @@
 <main>
     <section>
         <h1>Project Overview</h1>
-        <p> phylogenize is a R-based and conda package to utilize PGLS (phylogenetic generalized least square) to use gene contents to predict for environmental phenotypes
+        <p> phylogenize is a R-based and conda package to utilize <strong>PGLS (phylogenetic generalized least square)</strong> to use gene contents to predict for environmental phenotypes
         (such as specificity, prevalence or abundance) directly from sequencing data, while also accounting for the evolutionary relationships between microbes.
         </p> 
     </section>
 
     <section>
         <h1>Methods</h1>
-        <p> We use Phylogenetic Generalized Least Square (phylolm package), where predictor variables are gene presence/absence dataset (generated from UniRef, UHGP, and GTDB dataset clustering with Anivo's mmseq).
+        <p> We use <strong>Phylogenetic Generalized Least Square</strong> (phylolm package), where predictor variables are gene presence/absence dataset (generated from UniRef, UHGP, and GTDB dataset clustering with Anivo's mmseq).
             and outcome variables are count data (processed with QC, BBDuk, Kraken/Bracken), which will be transformed into phenotype data (prevalence/specificity or abundance, depending on user's choice)</p>
-        <p>To account for outlier and non-paramtric datasets, we implemented phylogenetic independent contrast - PIC (R ape package), combined with regression with empirical null distribution estimation method ("permulate").
-            This will help to reduce FPR and increase sensitivity. We use early-stopping (an adaptive machine-learning techniques to halt model when no further signficant hits are found) that remarkably save computing runtime
+        <p>To account for outlier and non-parametric datasets, we implemented <strong>phylogenetic independent contrast - PIC</strong> (R ape package), combined with regression with empirical null distribution estimation method <strong>("permulate")</strong>.
+            This will help to reduce FPR and increase sensitivity. We use <strong>early-stopping</strong> (an adaptive machine-learning techniques to halt model when no further signficant hits are found) that remarkably save computing runtime
             and resources.</p>
     </section>
 
     <section>
-        <h1>Results and Figures</h1>
+        <h1>Results Summary</h1>
 
-        <figure>
-            <img src="assets/phylogenize2/fig_1a_011326_2.svg" alt="P-value distribution of PGLS from null simulated dataset">
-            <figcaption>
-                <strong>Figure 1</strong> Even with null simulated data, phylogenizev1 that applies phylogenetic regression by phylolm (R package)
-                we still yields an anti-conservative distribution that indicates extremely high false discovery rate, though phylogeny structures have
-                been accounted for. FDR seems to be exacerbated when phenotypes (specificity, abundance or prevalence) is simulated instead of using real values.
-            </figcaption>
-        </figure>
-
-        <figure>
-            <img src="assets/phylogenize2/outlier.png" alt="The presence of outlier in phenotype values (aka outcome variables)">
-            <figcaption>
-                <strong>Figure 2</strong> Outliers in phenotype values (aka prevalence, specificity or abundance) are found in two different real dataset - 
-            the TaraOceans marine microbiome and mouse-gut microbiome.
-            </figcaption>   
-        </figure>
-    
         <figure>
             <img src="assets/phylogenize2/runtime_compared.svg" alt="kkk">
             <figcaption>
-                <strong>Figure 3</strong> Application of our new, phylogenetic statistical approach - Permul - 
-                shows a significant decrease in computing resources.
+                <strong>Figure 1</strong>: Application of our new, phylogenetic statistical approach - Permul - 
+                shows a significant <em>decrease in computing resources</em>.
             </figcaption>   
         </figure>
-    
+        
         <figure>
-            <img src="assets/phylogenize2/taraO.png" alt="kkk">
+            <img src="assets/phylogenize2/FDR.png">
             <figcaption>
-                <strong>Figure 4</strong> One of the significant protein hits identified from 
-                our new statistical method, from the marine microbiome (TaraOceans dataset) that 
+                <strong>Figure 2</strong>: Permul approach in phylogenize2 indicates significantly <em>less false positives</em>
+                compared to other previous methods
+                
+            </figcaption>   
+        </figure>
+
+        <figure>
+            <img src="assets/phylogenize2/power.png">
+            <figcaption>
+                <strong>Figure 3</strong>:... while also yields a better<em>improved sensitivity </em>than others.
+            </figcaption>   
+        </figure>
+
+        <figure>
+            <img src="assets/phylogenize2/taraO.png">
+            <figcaption>
+                <strong>Figure 4</strong>: One of the significant protein hits identified from 
+                our new statistical method, from the <em>marine microbiome (TaraOceans dataset)</em> that 
                 increases in the mesopelagic zone compared to the surface zone. 
             </figcaption>   
         </figure>
 
         <figure>
-            <img src="assets/phylogenize2/mice-gut.png" alt="kkk">
+            <img src="assets/phylogenize2/mice-gut.png">
             <figcaption>
-                <strong>Figure 4</strong> A significant protein hits from the mouse-gut microbiome 
+                <strong>Figure 5</strong> A significant protein hits from the <em>mouse-gut microbiome</em> 
                 that undergo intermittent fasting compared to normal diet using our new approach.
             </figcaption>   
         </figure>
 
-    </section>   
+        <figure>
+            <img src="assets/phylogenize2/cirrhosis.png">
+            <figcaption>
+                <strong>Figure 6</strong> Permul implemented in phylogenize2 detects 2 member of protein family 
+                that increase in <em>cirrhosis gut microbiome</em> 
+            </figcaption>   
+        </figure>
+
     <p><a href="index.html">Home</a>
+
+    
 </main>
 
 </body>
