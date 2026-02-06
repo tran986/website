@@ -1,116 +1,195 @@
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  line-height: 1.7;
+/* =========================
+   Global Reset & Defaults
+   ========================= */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: black;
-
 }
 
-header {
-  background-image: url("assets/background_head.jpg");
-  background-size:cover;
-  background-position:center;
-  color:white;
+html {
+  scroll-behavior: smooth;
+}
 
-  padding: 5rem 1rem;
+body {
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.85),
+      rgba(15, 23, 42, 0.85)
+    ),
+    url("assets/background_head.jpg"); /* change to your image path */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.hero {
+  min-height: 100vh;              /* full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* vertical center */
+  align-items: center;            /* horizontal center */
   text-align: center;
-  position:relative;
+  padding: 2rem;
 }
 
-header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  color: whitesmoke;
-}
-
-header p {
-  font-size: 1.8rem;
-  color: white;
-}
-
+/* =========================
+   Layout
+   ========================= */
 main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
 }
 
 section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
 }
 
+/* =========================
+   Typography
+   ========================= */
 h1 {
-  margin-bottom: 0.3rem;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: #e5e7eb;
 }
 
 h2 {
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 0.3rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #e5e7eb;
 }
 
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #666;
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: #e5e7eb;
 }
 
-a.button {
-  display: inline-block;
-  background: #6A94B4;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+p {
+  margin-bottom: 1rem;
+  max-width: 70ch;
+}
+
+em {
+  font-style: italic;
+  color: #e0e7ff;
+}
+
+/* =========================
+   Links
+   ========================= */
+a {
+  color: #93c5fd; /* soft blue */
   text-decoration: none;
-  transition: background 0.3s;
 }
 
-a.button:hover {
-  background: #005f87;
+a:hover {
+  text-decoration: underline;
 }
-/* ====== TWO-COLUMN GRID LAYOUT ====== */
+
+/* =========================
+   Lists
+   ========================= */
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
+/* =========================
+   Two-column Section
+   ========================= */
 .two-column-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  max-width: 1000px;
-  margin:3rem auto;
-  padding: 0 1rem;
+  gap: 3rem;
+  align-items: start;
 }
 
-.two-column-section .column {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+@media (max-width: 900px) {
+  .two-column-section {
+    grid-template-columns: 1fr;
+  }
 }
 
-.two-column.split {
-  display: flex;
-  gap: 2.5rem;
-  align-items: stretch;  /* makes left and right panels same height */
-}
-
-/* Child panels: force 50% width each */
-.two-column.split > .content-panel {
-  flex: 0 0 50%;
-}
-
-/* ====== IMAGE PANEL (optional) ====== */
-.image-panel {
-  flex: 1;
-  background-image: url("assets/background.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  min-height: 300px;
-}
-
-/* ====== CONTENT PANEL ====== */
+/* =========================
+   Cards / Panels
+   ========================= */
+.column,
 .content-panel {
-  flex: 1;
-  background: white;
+  background-color: #020617;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* =========================
+   Figures & Results
+   ========================= */
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  border-radius: 10px;
+  background-color: #020617;
+  padding: 0.5rem;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+/* =========================
+   Navigation (if you have one)
+   ========================= */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #020617;
+  padding: 1rem 1.5rem;
+  z-index: 100;
+  border-bottom: 1px solid #1e293b;
+}
+
+nav a {
+  margin-right: 1.5rem;
+  font-weight: 500;
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  border-top: 1px solid #1e293b;
+}
+
+/* =========================
+   Utility Classes
+   ========================= */
+.center {
+  text-align: center;
+}
+
+.muted {
+  color: #94a3b8;
+}
