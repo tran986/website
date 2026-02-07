@@ -12,24 +12,85 @@
 <!-- body of html section starts-->
 <body>
     <!--header of body section starts-->
-    <section>
+    <header class="hero">
+    <!--add a figure about logic of phylogenize2/PGLS-->
+        <h1><em>PERMANOVA-based Pathway Analysis (PPA)</em></h1>
+        <p>  Novel PERMANOVA-based approach for pathway enrichment </p>
+        <p> Nghi (Nia) Tran, Patrick Bradley</p>
+      </header>
 
-    </section>
+    <main>
+      <section>
+      <h1>Project Overview</h1>
+      <p>We designed a non-parametric statistical tool to analyze pathway enrichment that
+        can accomodate for the drawbacks from previous approach. The 1st previous method – over-representation analysis (ORA) – applies a statistical test on the gene set where it only assigns the significant 
+        genes associated with a condition (below the significant cutoff) to their pathways, with its biggest pitfall is the removal of genes in the 1st statistical threshold that
+        may contain valuable information. The 2nd previous method, gene-set enrichment analysis, despite not dropping genes by utilizing a whole-pathway approach, 
+        it bypasses information on the compositional changes that make up small functional units. </p>
+      <p>Here we introduce <strong>PPA (PEMANOVA-based pathway analysis)</strong>. By utilizing distance matrix, our approach
+        can capture pathway changes across sample groups, without heavily depending on pathway definition (aka what database is in use) while also avoiding mentioned problems. Application of our tool on simulated
+        dataset improves sensitivity and decreases type 2 error, compared to ORA and GSEA.
+      </p>
+      </section>
 
+      <section>
+      <h1>Methods</h1>
+      <p>Count data from transcriptomic or metagenomics is simulated using R packages so that Scenario a: Small effect size (biological difference) in gene counts between 2 sample groups. 
+        Scenario b: Genes in pathways that indicates multi-colinearity (or multivariate property) (e.g, gene A and gene B negatively or positively correlate to one another) 
+        Scenario c: Genes that have conflicting changes within a sample group (e.g, gene A increased in 5 samples AND decrease in 5 other samples in test groups, compared to controls) Scenario d: Test group and control group have unbalanced designs (e.g, unequal sample size, or unequal variances across 2 groups) 
+        that potentially can harm PERMANOVA performance</p>
 
-    <section>
-      
-    </section>
-<main>
+      <p>PPA development is done via R broom and vegan packages, with its pipeline shown below:</p>
+      <figure>
+        <img src="assets/PPA/PPA_pipeline.png" alt="PPA_pipeline">
+        <figcaption>
+          The summary of PPA pipeline, expected user inputs and outputs. 
+        </figcaption>
+      </figure>
+      </section>
 
+      <section>
+      <h1>Results Summary</h1>
+      <figure>
+        <img src="assets/PPA/diff_ES.png" alt="different_ES">
+        <figcaption>
+          Across different effect size (large, medium, and small), 
+          PPA achieves excellent AUC-ROC at varying alpha level threshold.
+          This proves that under simulation settings, PPA has exceptional sensitivity 
+          type 2 error controlling.
+        </figcaption>
+      </figure>
 
+      <figure>
+        <img src="assets/PPA/compare_ORA.png" alt="compare_ORA.png">
+        <img src="assets/PPA/compare_ORA_bar.png" alt="compare_ORA_bar.png">
+        <figcaption>
+          At a medium effect size, PPA shows a higher AUC-ROC than ORA with a better balance
+          of sensitivity and error-controling. 
+        </figcaption>
+      </figure>
 
+      <figure>
+        <img src="assets/PPA/tricky_cases.png" alt="tricky_cases.png">
+        <figcaption>
+          Even under the most "tricky cases" for PERMANOVA, PPA's performance is not negatively impacted. 
+          These include the presence of (A) conflicting signals (some genes increase while some other genes decrease in the same pathway);
+          (B) multi-colinearity between genes in pathways and (C) unbalanced test design (number of 2 sample groups are not equal)
+        </figcaption>
+      </figure>
 
+      <figure>
+        <img src="assets/PPA/ES_present.png" alt="ES_present">
+        <figcaption>
+          Although both R—squared and F-statistic are well correlated with effect size, 
+          F-statistic is a better representation of effect size for users to understand the magnitude difference between groups.
+        </figcaption>
+      </figure>
 
+      </section>
 
-
-
-</main>
+    <p><a href="index.html">Home</a>
+    </main>
 
 </body>
 
