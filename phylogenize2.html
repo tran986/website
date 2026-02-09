@@ -9,6 +9,13 @@
    <link rel="stylesheet" href="style.css">
 </head>
 
+<nav class="pill-nav">
+  <a href="#overview">Overview</a>
+  <a href="#method">Methods</a>
+  <a href="#results">Summary</a>
+  <a href="https://github.com/pbradleylab/phylogenize" target="_blank" rel="noopener">GitHub</a>
+</nav>
+
 <!-- body of html section starts-->
 <body>
     <!--header of body section starts-->
@@ -22,7 +29,7 @@
 
     <!--main of body section starts-->
 <main>
-    <section>
+    <section id="overview">
         <h1>Project Overview</h1>
         <img src="assets/phylogenize2/background_phylo.png" alt="Project banner">
         <p> phylogenize is a R-based and conda package to utilize <strong>PGLS (phylogenetic generalized least square)</strong> to use gene contents to predict for environmental phenotypes
@@ -30,7 +37,7 @@
         </p> 
     </section>
 
-    <section>
+    <section id="method">
         <h1>Methods</h1>
         <p> We use <strong>Phylogenetic Generalized Least Square</strong> (phylolm package), where predictor variables are gene presence/absence dataset (generated from UniRef, UHGP, and GTDB dataset clustering with Anivo's mmseq).
             and outcome variables are count data (processed with QC, BBDuk, Kraken/Bracken), which will be transformed into phenotype data (prevalence/specificity or abundance, depending on user's choice)</p>
@@ -39,7 +46,7 @@
             and resources.</p>
     </section>
 
-    <section>
+    <section id="results">
         <h1>Results Summary</h1>
 
         <figure>

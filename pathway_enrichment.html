@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<nav class="pill-nav">
+  <a href="#overview">Overview</a>
+  <a href="#method">Methods</a>
+  <a href="#results">Summary</a>
+  <a href="https://github.com/tran986/PERMANOVA-based-aggregation" target="_blank" rel="noopener">GitHub</a>
+</nav>
+
 <!-- body of html section starts-->
 <body>
     <!--header of body section starts-->
@@ -20,7 +27,7 @@
       </header>
 
     <main>
-      <section>
+      <section id = "overview">
       <h1>Project Overview</h1>
       <p>We designed a non-parametric statistical tool to analyze pathway enrichment that
         can accomodate for the drawbacks from previous approach. The 1st previous method – over-representation analysis (ORA) – applies a statistical test on the gene set where it only assigns the significant 
@@ -33,7 +40,7 @@
       </p>
       </section>
 
-      <section>
+      <section id = "method">
       <h1>Methods</h1>
       <p>Count data from transcriptomic or metagenomics is simulated using R packages so that Scenario a: Small effect size (biological difference) in gene counts between 2 sample groups. 
         Scenario b: Genes in pathways that indicates multi-colinearity (or multivariate property) (e.g, gene A and gene B negatively or positively correlate to one another) 
@@ -49,7 +56,7 @@
       </figure>
       </section>
 
-      <section>
+      <section id = "result">
       <h1>Results Summary</h1>
       <figure>
         <img src="assets/PPA/diff_ES.png" alt="different_ES">
