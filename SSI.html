@@ -18,13 +18,71 @@
 
 <body>
 <header class="hero">
-    <h1>Skin and soft tissue infection risk factor</h1>
+    <h1>Determining skin and soft tissue infection risk factors</h1>
        <p> </p>
        <p> Nghi (Nia) Tran</p>
 
 </header>
 <main>
+    <section id = "overview">
+    <h2>Project Overview</h2>
+        <p>
+            Using a public health's patient dataset, the project aims to identify what are the factors that are 
+            highly correlated to skin and soft tissue infection (SSI) - a condition where bacteria/fungi or virus 
+            invades the underlying skin tissues. SSI patients require a wide range of medical treatments, ranging from
+            antibiotics to surgery that can be life-threatening. From statistical analysis, we identified and visualized
+            three variables - surgical approach, Pre-Op Albumin, and C-reactive proteins levels - to be significantly associated with SSIs
+            that can be targeted for prevention or diagnosis. 
+        </p>
+    
+    <section id = "method">
+    <h2>Methods</h2>
+        <p>Patient dataset is provided by Dr. Juan Klopper (Department of Biostatistics and Bioinformatics) 
+        from Milken Institute School of Public Health, The George Washington University Washington D.C.
+        Both statistical analyses and visualization are done using Python packages (Pandas, NumPy, Plotly, Scipy, 
+        Matplotlib and Seaborn, etc...)
+        </p>
+    </section>
 
+    <section id = "results">
+    <h2>Summary Results</h2>
+    <figure>
+        <img src="assets/SSI/surgical_appr1.png" alt="surgical_app1.png">
+        <figcaption>
+        Visualizing chi-square test between two different surgical approaches, 
+        open vs minimally invasive (MI) surgery, indicated if patients undergo open operations, 
+        they are more likely to contract infection than MI surgery, ...
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="assets/SSI/surgical_appr2.png" alt="surgical_app2.png">
+        <figcaption>
+        ...regardless of their genders.
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="assets/SSI/cpr.png" alt="C-reative_pro.png">
+        <img src="assets/SSI/cpr2.png" alt="C-reative_pro2.png">
+        <figcaption>
+        Using Shapiro and Mann Whitney U non-parametric test, we identified the higher the difference of C-reative proteins
+        between before and after surgeries, the higher chance the patients have SSI.
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="assets/SSI/pre-op albumin.png">
+        <img src="assets/SSI/pre_op albumin2.png">
+        <figcaption>
+        Similarly, with t-test, we determined the last significant factor - 
+        the pre-op hypoalbuminemia levels (aka nutritional status) as one of the significant
+        factor for SSI. 
+        </figcaption>
+    </figure>
+
+    </section>
+<p><a href="index.html">Home</a>
 </main>
 
 </body>
