@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background-color: #0f172a;
-  color: #f8fafc;
+  background-color: #ddc1c1;
+  color: #222222;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.8;
   font-size: 24px;
@@ -23,7 +23,7 @@ body {
 min-height: 100vh;
 
   background-image: 
-    url("assets/background_head.jpg");
+    url("assets/website_background.png");
 
   background-size: cover;
   background-position: center;
@@ -78,14 +78,14 @@ p {
 
 em {
   font-style: italic;
-  color: #e0e7ff;
+  color: #222222;
 }
 
 /* =========================
    Links
    ========================= */
 a {
-  color: #93c5fd; /* soft blue */
+  color: black; 
   text-decoration: none;
 }
 
@@ -125,7 +125,7 @@ li {
    ========================= */
 .column,
 .content-panel {
-  background-color: #020617;
+  background-color: #a03f50;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -226,3 +226,21 @@ footer {
 .pill-nav a:hover {
   opacity: 0.7;
 }
+/* =========================
+   Contact Icons
+   ========================= */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-icons a {
+  color: #f8fafc;
+  font-size: 1.8rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-icons a:hover {
+  transform: translateY(-3px);
