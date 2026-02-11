@@ -13,6 +13,7 @@ html {
 
 body {
   background-color: #a03f50;
+  font-size: 16px;
   color: #f6e9cf;
   font-family: "Libre Baskerville", Georgia, serif;
   line-height: 1.8;
@@ -70,13 +71,13 @@ h1::after, h2::after {
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #e5e7eb;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
   color: #e5e7eb;
 }
@@ -151,6 +152,7 @@ figure {
 
 figure img {
   max-width: 100%;
+  height: auto;
   border-radius: 10px;
   background-color: #222222;
   padding: 0.5rem;
