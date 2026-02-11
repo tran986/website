@@ -12,11 +12,11 @@ html {
 }
 
 body {
-  background-color: #ddc1c1;
-  color: #222222;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #a03f50;
+  color: #f6e9cf;
+  font-family: "Libre Baskerville", Georgia, serif;
   line-height: 1.8;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .hero {
@@ -53,6 +53,22 @@ section {
 /* =========================
    Typography
    ========================= */
+h1, h2 {
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+h1::after, h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #e5e7eb; 
+}
+
 h1 {
   font-size: 2.6rem;
   margin-bottom: 1rem;
@@ -65,12 +81,6 @@ h2 {
   color: #e5e7eb;
 }
 
-h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
-  color: #e5e7eb;
-}
-
 p {
   margin-bottom: 1rem;
   max-width: 70ch;
@@ -78,14 +88,14 @@ p {
 
 em {
   font-style: italic;
-  color: #222222;
+  color: #e5e7eb;
 }
 
 /* =========================
    Links
    ========================= */
 a {
-  color: black; 
+  color: #e5e7eb; 
   text-decoration: none;
 }
 
@@ -125,10 +135,10 @@ li {
    ========================= */
 .column,
 .content-panel {
-  background-color: #a03f50;
+  background-color: #222222;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(234, 148, 171, 0.4);
 }
 
 /* =========================
@@ -142,14 +152,14 @@ figure {
 figure img {
   max-width: 100%;
   border-radius: 10px;
-  background-color: #020617;
+  background-color: #222222;
   padding: 0.5rem;
 }
 
 figcaption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #cbd5f5;
+  color:#e5e7eb;
 }
 
 /* =========================
@@ -158,10 +168,11 @@ figcaption {
 nav {
   position: sticky;
   top: 0;
-  background-color: #020617;
+  background-color: #2b2f36;
   padding: 1rem 1.5rem;
   z-index: 100;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1.1px solid #f6e9cf;
+
 }
 
 nav a {
