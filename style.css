@@ -15,9 +15,18 @@ body {
   background-color: #a03f50;
   font-size: 16px;
   color: #f6e9cf;
-  font-family: "Libre Baskerville", Georgia, serif;
+  font-family: "EB Garamond", Georgia, serif;
   line-height: 1.8;
   font-size: 20px;
+  background-repeat: no-repeat;
+}
+
+body.phylogenize {
+  background-color: #222222;
+  background-size: cover;
+  color:#f6e9cf;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .hero {
@@ -190,7 +199,7 @@ footer {
   padding: 2rem 1.5rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: #f6e9cf;
   border-top: 1px solid #1e293b;
 }
 
@@ -202,7 +211,7 @@ footer {
 }
 
 .muted {
-  color: #94a3b8;
+  color: #f6e9cf;
 }
 
 /* =========================
@@ -286,3 +295,80 @@ footer {
   }
 
 }
+
+.results {
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+}
+
+.results h2 {
+  text-align:center;
+  margin-bottom: 3rem;
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+figure {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+figcaption {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color:#f6e9cf;
+}
+
+@media (max-width: 768px) {
+  .figure-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+figure {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #f6e9cf;
+}
+
+.figure-wide {
+  grid-column: span 2;
+}
+
+/* Side-by-side figures inside the wide card */
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+

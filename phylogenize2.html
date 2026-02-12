@@ -17,10 +17,9 @@
 </nav>
 
 <!-- body of html section starts-->
-<body>
+<body class="phylogenize">
     <!--header of body section starts-->
-
-  <header class="hero">
+  <header >
     <!--add a figure about logic of phylogenize2/PGLS-->
         <h1><em>phylogenize2</em></h1>
         <p> A robust phylogenetic regression framework for microbiome analysis</p>
@@ -31,7 +30,6 @@
 <main>
     <section id="overview">
         <h1>Project Overview</h1>
-        <img src="assets/phylogenize2/background_phylo.png" alt="Project banner">
         <p> phylogenize is a R-based and conda package to utilize <strong>PGLS (phylogenetic generalized least square)</strong> to use gene contents to predict for environmental phenotypes
         (such as specificity, prevalence or abundance) directly from sequencing data, while also accounting for the evolutionary relationships between microbes.
         </p> 
@@ -46,61 +44,60 @@
             and resources.</p>
     </section>
 
-    <section id="results">
+    <section id="results" class="results">
         <h1>Results Summary</h1>
-
-        <figure>
+        <div class="figure-grid">
+            <figure>
             <img src="assets/phylogenize2/runtime_compared.svg" alt="kkk">
-            <figcaption>
+                <figcaption>
                 <strong>Figure 1</strong>: Application of our new, phylogenetic statistical approach - Permul - 
                 shows a significant <em>decrease in computing resources</em>.
-            </figcaption>   
-        </figure>
-        
-        <figure>
-            <img src="assets/phylogenize2/FDR.png">
-            <figcaption>
-                <strong>Figure 2</strong>: Permul approach in phylogenize2 indicates significantly <em>less false positives</em>
-                compared to other previous methods
-                
-            </figcaption>   
-        </figure>
+                </figcaption>   
+            </figure>
 
-        <figure>
-            <img src="assets/phylogenize2/power.png">
-            <figcaption>
-                <strong>Figure 3</strong>:... while also yields a better<em>improved sensitivity </em>than others.
-            </figcaption>   
-        </figure>
+            <figure class="figure-wide">
+                <div class="figure-pair">
+                   <img src="assets/phylogenize2/FDR.png">
+                </div>
 
-        <figure>
+                <div>
+                   <img src="assets/phylogenize2/power.png">
+                   <figcaption>
+                    <strong>Figure 2 & 3</strong>: Permul approach in phylogenize2 indicates significantly <em>less false positives</em>
+                   compared to other previous methods while also yields a better <em>improved sensitivity </em>than others.
+                   </figcaption> 
+                </div>  
+            </figure>
+            
+            <figure>
             <img src="assets/phylogenize2/taraO.png">
-            <figcaption>
+                <figcaption>
                 <strong>Figure 4</strong>: One of the significant protein hits identified from 
                 our new statistical method, from the <em>marine microbiome (TaraOceans dataset)</em> that 
                 increases in the mesopelagic zone compared to the surface zone. 
-            </figcaption>   
-        </figure>
-
-        <figure>
+                </figcaption>   
+            </figure> 
+            
+            <figure>
             <img src="assets/phylogenize2/mice-gut.png">
-            <figcaption>
+                <figcaption>
                 <strong>Figure 5</strong> A significant protein hits from the <em>mouse-gut microbiome</em> 
                 that undergo intermittent fasting compared to normal diet using our new approach.
-            </figcaption>   
-        </figure>
+                </figcaption>   
+            </figure>
 
-        <figure>
+            <figure>
             <img src="assets/phylogenize2/cirrhosis.png">
-            <figcaption>
+                <figcaption>
                 <strong>Figure 6</strong> Permul implemented in phylogenize2 detects 2 member of protein family 
                 that increase in <em>cirrhosis gut microbiome</em> 
-            </figcaption>   
-        </figure>
+                </figcaption>   
+            </figure>
 
+        </div>
+        
     <p><a href="index.html">Home</a>
 
-    
 </main>
 
 </body>
