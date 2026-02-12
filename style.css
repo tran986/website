@@ -13,7 +13,6 @@ html {
 
 body {
   background-color: #a03f50;
-  font-size: 16px;
   color: #f6e9cf;
   font-family: "EB Garamond", Georgia, serif;
   line-height: 1.8;
@@ -138,11 +137,12 @@ li {
 .column,
 .content-panel {
   background-color: #222222;
-  padding: 2rem;
+  max-width: 900px;
+  padding: 3rem;
+  margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(234, 148, 171, 0.4);
 }
-
 
 /* =========================
    Figures & Results
@@ -162,7 +162,7 @@ figure img {
 
 figcaption {
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color:#e5e7eb;
 }
 
@@ -394,5 +394,3 @@ figcaption {
   gap: 1.5rem;
 }
 
-/* =========================
-   ========================= */
