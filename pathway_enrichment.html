@@ -17,7 +17,7 @@
 </nav>
 
 <!-- body of html section starts-->
-<body>
+<body class="phylogenize">
     <!--header of body section starts-->
     <header class="hero">
     <!--add a figure about logic of phylogenize2/PGLS-->
@@ -56,8 +56,9 @@
       </figure>
       </section>
 
-      <section id = "result">
+      <section id="results" class="results">
       <h1>Results Summary</h1>
+      <div class="figure-grid">
       <figure>
         <img src="assets/PPA/diff_ES.png" alt="different_ES">
         <figcaption>
@@ -69,14 +70,18 @@
       </figure>
 
       <figure>
-        <img src="assets/PPA/compare_ORA.png" alt="compare_ORA.png">
-        <img src="assets/PPA/compare_ORA_bar.png" alt="compare_ORA_bar.png">
-        <figcaption>
+          <img src="assets/PPA/compare_ORA.png" alt="compare_ORA.png">
+          <figcaption>
           At a medium effect size, PPA shows a higher AUC-ROC than ORA with a better balance
-          of sensitivity and error-controling. 
-        </figcaption>
+          of sensitivity and error-controling.</figcaption>
       </figure>
 
+      <figure>
+          <img src="assets/PPA/compare_ORA_bar.png" alt="compare_ORA_bar.png">
+          <figcaption>
+          At a medium effect size, PPA results in higher sensitivity and lower type 1 error.</figcaption>
+      </figure>
+    
       <figure>
         <img src="assets/PPA/tricky_cases.png" alt="tricky_cases.png">
         <figcaption>
@@ -93,7 +98,7 @@
           F-statistic is a better representation of effect size for users to understand the magnitude difference between groups.
         </figcaption>
       </figure>
-
+    </div>
       </section>
 
     <p><a href="index.html">Home</a>

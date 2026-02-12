@@ -21,14 +21,6 @@ body {
   background-repeat: no-repeat;
 }
 
-body.phylogenize {
-  background-color: #222222;
-  background-size: cover;
-  color:#f6e9cf;
-  background-position: center;
-  background-attachment: fixed;
-}
-
 .hero {
 min-height: 100vh;
 
@@ -296,6 +288,35 @@ footer {
 
 }
 
+/* =========================
+   for all the research.html only:
+   ========================= */
+
+body.phylogenize {
+  background-color: #222222;
+  background-size: cover;
+  color:#f6e9cf;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.phylogenize .hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-image: linear-gradient(
+    to bottom,
+      #a03f60,
+      rgba(95, 35, 35, 0.85)
+    );
+
+  background-size: cover;
+  background-position: center;
+}
+
 .results {
   max-width: 1200px;
   margin: 6rem auto;
@@ -372,3 +393,5 @@ figcaption {
   gap: 1.5rem;
 }
 
+/* =========================
+   ========================= */
