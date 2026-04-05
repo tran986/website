@@ -34,15 +34,146 @@
         </p>
     
     <section id = "method">
-    <h2>Methods</h2>
-        <p>
+<h2>Methods</h2>
+<p>
+  This project builds a binary machine learning classifier to predict whether 
+  a single nucleotide variant (SNV) is benign or pathogenic, using publicly 
+  available data from the ClinVar database.
+</p>
 
-        </p>
+<!-- Pipeline Diagram -->
+<div style="width:100%; max-width:800px; margin: 2rem auto;">
+  <svg width="100%" viewBox="0 0 680 920" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" 
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" 
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+      <style>
+        .pipe-box  { fill: #f5f5f5; stroke: #bbb; stroke-width: 0.5; }
+        .pipe-text { font-family: sans-serif; font-size: 14px; font-weight: 500; fill: #1a1a1a; }
+        .pipe-sub  { font-family: sans-serif; font-size: 12px; fill: #555; }
+        .pipe-arr  { stroke: #888; stroke-width: 1.5; fill: none; }
+        .step-gray   { fill: #f0efea; stroke: #aaa; }
+        .step-teal   { fill: #e1f5ee; stroke: #0f6e56; }
+        .step-purple { fill: #eeedfe; stroke: #534ab7; }
+        .step-amber  { fill: #faeeda; stroke: #854f0b; }
+        .step-coral  { fill: #faece7; stroke: #993c1d; }
+        .step-blue   { fill: #e6f1fb; stroke: #185fa5; }
+        .step-green  { fill: #eaf3de; stroke: #3b6d11; }
+        .text-gray   { fill: #2c2c2a; }
+        .text-teal   { fill: #085041; }
+        .text-purple { fill: #26215c; }
+        .text-amber  { fill: #412402; }
+        .text-coral  { fill: #4a1b0c; }
+        .text-blue   { fill: #042c53; }
+        .text-green  { fill: #173404; }
+        .sub-gray    { fill: #5f5e5a; }
+        .sub-teal    { fill: #0f6e56; }
+        .sub-purple  { fill: #534ab7; }
+        .sub-amber   { fill: #854f0b; }
+        .sub-coral   { fill: #993c1d; }
+        .sub-blue    { fill: #185fa5; }
+        .sub-green   { fill: #3b6d11; }
+      </style>
+    </defs>
+
+    <!-- STEP 1 -->
+    <rect class="pipe-box step-gray" x="190" y="30" width="300" height="56" rx="8"/>
+    <text class="pipe-text text-gray" x="340" y="53" text-anchor="middle" dominant-baseline="central">Step 1 — load and filter data</text>
+    <text class="pipe-sub  sub-gray"  x="340" y="71" text-anchor="middle" dominant-baseline="central">ClinVar variant_summary.txt.gz</text>
+    <line class="pipe-arr" x1="340" y1="86"  x2="340" y2="116" marker-end="url(#arrow)"/>
+
+    <!-- STEP 2 -->
+    <rect class="pipe-box step-teal" x="190" y="116" width="300" height="56" rx="8"/>
+    <text class="pipe-text text-teal" x="340" y="139" text-anchor="middle" dominant-baseline="central">Step 2 — filter rows</text>
+    <text class="pipe-sub  sub-teal"  x="340" y="157" text-anchor="middle" dominant-baseline="central">Benign / Pathogenic · SNV only</text>
+    <line class="pipe-arr" x1="340" y1="172" x2="340" y2="202" marker-end="url(#arrow)"/>
+
+    <!-- STEP 3 -->
+    <rect class="pipe-box step-purple" x="140" y="202" width="400" height="56" rx="8"/>
+    <text class="pipe-text text-purple" x="340" y="225" text-anchor="middle" dominant-baseline="central">Step 3 — feature engineering</text>
+    <text class="pipe-sub  sub-purple"  x="340" y="243" text-anchor="middle" dominant-baseline="central">One-hot encode ref + alt alleles</text>
+
+    <!-- Sub-feature arrows -->
+    <line class="pipe-arr" x1="220" y1="258" x2="220" y2="296" marker-end="url(#arrow)"/>
+    <line class="pipe-arr" x1="340" y1="258" x2="340" y2="296" marker-end="url(#arrow)"/>
+    <line class="pipe-arr" x1="460" y1="258" x2="460" y2="296" marker-end="url(#arrow)"/>
+
+    <!-- Sub-feature boxes -->
+    <rect class="pipe-box step-purple" x="80"  y="296" width="175" height="44" rx="8"/>
+    <text class="pipe-text text-purple" x="167" y="314" text-anchor="middle" dominant-baseline="central">ref allele</text>
+    <text class="pipe-sub  sub-purple"  x="167" y="330" text-anchor="middle" dominant-baseline="central">ref_A / T / C / G</text>
+
+    <rect class="pipe-box step-purple" x="253" y="296" width="175" height="44" rx="8"/>
+    <text class="pipe-text text-purple" x="340" y="314" text-anchor="middle" dominant-baseline="central">substitution type</text>
+    <text class="pipe-sub  sub-purple"  x="340" y="330" text-anchor="middle" dominant-baseline="central">C&gt;T · A&gt;G etc.</text>
+
+    <rect class="pipe-box step-purple" x="426" y="296" width="175" height="44" rx="8"/>
+    <text class="pipe-text text-purple" x="513" y="314" text-anchor="middle" dominant-baseline="central">alt allele</text>
+    <text class="pipe-sub  sub-purple"  x="513" y="330" text-anchor="middle" dominant-baseline="central">alt_A / T / C / G</text>
+
+    <!-- Merge lines -->
+    <line class="pipe-arr" x1="167" y1="340" x2="167" y2="376" marker-end="url(#arrow)"/>
+    <line class="pipe-arr" x1="340" y1="340" x2="340" y2="376" marker-end="url(#arrow)"/>
+    <line class="pipe-arr" x1="513" y1="340" x2="513" y2="376" marker-end="url(#arrow)"/>
+    <line x1="167" y1="376" x2="513" y2="376" stroke="#bbb" stroke-width="0.5" fill="none"/>
+    <line class="pipe-arr" x1="340" y1="376" x2="340" y2="400" marker-end="url(#arrow)"/>
+
+    <!-- STEP 4 -->
+    <rect class="pipe-box step-teal" x="140" y="400" width="400" height="56" rx="8"/>
+    <text class="pipe-text text-teal" x="340" y="423" text-anchor="middle" dominant-baseline="central">Step 4 — build X and y</text>
+    <text class="pipe-sub  sub-teal"  x="340" y="441" text-anchor="middle" dominant-baseline="central">X = encoded features · y = 0 Benign / 1 Pathogenic</text>
+    <line class="pipe-arr" x1="340" y1="456" x2="340" y2="486" marker-end="url(#arrow)"/>
+
+    <!-- STEP 5 -->
+    <rect class="pipe-box step-amber" x="140" y="486" width="400" height="56" rx="8"/>
+    <text class="pipe-text text-amber" x="340" y="509" text-anchor="middle" dominant-baseline="central">Step 5 — train / test split</text>
+    <text class="pipe-sub  sub-amber"  x="340" y="527" text-anchor="middle" dominant-baseline="central">80% train · 20% test · stratify=y</text>
+    <line class="pipe-arr" x1="340" y1="542" x2="340" y2="572" marker-end="url(#arrow)"/>
+
+    <!-- STEP 6 -->
+    <rect class="pipe-box step-coral" x="140" y="572" width="400" height="56" rx="8"/>
+    <text class="pipe-text text-coral" x="340" y="595" text-anchor="middle" dominant-baseline="central">Step 6 — train model</text>
+    <text class="pipe-sub  sub-coral"  x="340" y="613" text-anchor="middle" dominant-baseline="central">RandomForestClassifier · tune n_estimators</text>
+    <line class="pipe-arr" x1="340" y1="628" x2="340" y2="658" marker-end="url(#arrow)"/>
+
+    <!-- STEP 7 -->
+    <rect class="pipe-box step-blue" x="140" y="658" width="400" height="56" rx="8"/>
+    <text class="pipe-text text-blue" x="340" y="681" text-anchor="middle" dominant-baseline="central">Step 7 — evaluate</text>
+    <text class="pipe-sub  sub-blue"  x="340" y="699" text-anchor="middle" dominant-baseline="central">precision · recall · F1 · ROC-AUC</text>
+    <line class="pipe-arr" x1="340" y1="714" x2="340" y2="744" marker-end="url(#arrow)"/>
+
+    <!-- STEP 8 -->
+    <rect class="pipe-box step-green" x="140" y="744" width="400" height="56" rx="8"/>
+    <text class="pipe-text text-green" x="340" y="767" text-anchor="middle" dominant-baseline="central">Step 8 — improve features</text>
+    <text class="pipe-sub  sub-green"  x="340" y="785" text-anchor="middle" dominant-baseline="central">add chromosome · k-mers · conservation scores</text>
+
+    <!-- Feedback loop -->
+    <path d="M140 772 Q60 772 60 514 Q60 258 140 258"
+          fill="none" stroke="#bbb" stroke-width="0.5"
+          stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+    <text font-family="sans-serif" font-size="11px" fill="#888"
+          x="30" y="520" text-anchor="middle"
+          transform="rotate(-90 30 520)">iterate</text>
+
+  </svg>
+</div>
+
+<p>
+  Data was sourced from the NCBI ClinVar database 
+  (<a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">ncbi.nlm.nih.gov/clinvar</a>), 
+  filtered to single nucleotide variants with a classification of 
+  either Benign or Pathogenic. Features were engineered using one-hot 
+  encoding of the reference and alternate alleles from VCF annotations. 
+  A Random Forest classifier was trained using scikit-learn with 
+  class_weight="balanced" to account for class imbalance, and evaluated 
+  using precision, recall, F1-score, and ROC-AUC.
+</p>
     </section>
-
-    <section id="results" class="results">
+    <section id="results">
     <h2>Summary Results</h2>
-    <div class="figure-grid">
     <figure>
         <img src="assets/colon_cancer/roc_curve.png" alt="roc_curve1.png">
         <img src="assets/colon_cancer/roc_curve_with_4_features.png" alt="roc_curve2.png">
@@ -51,7 +182,6 @@
         </figcaption>
     </figure>
 
-    </div>
     </section>
 <p><a href="index.html">Home</a>
 </main>
